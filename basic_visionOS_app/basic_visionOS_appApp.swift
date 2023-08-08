@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+let apiKey = "INPUT_API_KEY"
 
 @main
 struct basic_visionOS_appApp: App {
