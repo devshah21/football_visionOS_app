@@ -11,9 +11,24 @@ import XCAFootballDataClient
 struct StandingsTableView: View {
     
     let competition: Competition
+    var vm = StandingTableObservable()
+    
+    
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).navigationTitle(competition.name)
+        Table(of: TeamStandingTable.self) {
+            
+            TableColumn("W") {Text($0.wonText)}
+            
+        } rows: {
+            ForEach(vm.standings ?? []) {
+                TableRow($0)
+            }
+        }
+        .foregroundStyle(Color.primary)
+            .navigationTitle(competition.name).task {
+            await vm.fetchStandings(competition: competition)
+        }
     }
 }
 
