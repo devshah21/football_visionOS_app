@@ -30,3 +30,13 @@ class StandingTableObservable {
     }
     
 }
+
+extension TeamStandingTable {
+    
+    static var stubs: [TeamStandingTable] {
+        let url = Bundle.main.url(
+            forResource: "standings", withExtension: "json")!
+        let standingResponse: StandingResponse = Utilities.loadStub(url: url)
+        return standingResponse.standings!.first { $0.type == "TOTAL" }!.table
+    }
+}
