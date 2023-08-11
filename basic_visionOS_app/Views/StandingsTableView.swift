@@ -27,13 +27,13 @@ struct StandingsTableView: View {
                         team.team.crest ?? "")) { phase in
                         switch phase {
                         case .success(let image):
-                            <#code#>
+                            image.resizable()
                         default:
                             Circle().foregroundStyle(Color.gray.opacity(0.5))
                         }
                         
                     }
-                    
+                        .frame(width: 40, height: 40)
                 }
             }
             .width(min: 264)
