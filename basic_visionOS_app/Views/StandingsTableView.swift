@@ -113,6 +113,15 @@ struct StandingsTableView: View {
         .navigationTitle(competition.name).task(id: vm.selectedFilter.id) {
             await vm.fetchStandings(competition: competition)
         }
+        .toolbar {
+                    ToolbarItem(placement: .bottomOrnament) {
+                        Picker("Filter Options", selection: $vm.selectedFilter) {
+                            ForEach(vm.filterOptions, id: \.self) { season in
+                                Text(" \(season.text) ")
+                            }
+                        }.pickerStyle(.segmented)
+                    }
+                }
     }
 }
 
