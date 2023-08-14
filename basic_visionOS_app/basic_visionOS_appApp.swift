@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
-let apiKey = "INPUT_API_KEY"
+let apiKey = ""
 
 @main
 struct basic_visionOS_appApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                StandingsTabItemView().tabItem { Label("Standings", systemImage: "table.fill")}
+                
+                
+                Text("Top Scorers").tabItem { Label("Top Scorers", systemImage: "soccerball.inverse")}
+            }
         }
     }
 }
