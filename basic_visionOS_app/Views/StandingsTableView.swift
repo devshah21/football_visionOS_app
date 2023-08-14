@@ -101,6 +101,14 @@ struct StandingsTableView: View {
                 TableRow($0)
             }
         }
+        .overlay {
+            switch vm.fetchPhase {
+            case .fetching: ProgressView()
+            case .failure(let error):
+                Text(error.localizedDescription).font(.headline)
+            default: EmptyView()
+            }
+        }
         .foregroundStyle(Color.primary)
             .navigationTitle(competition.name).task {
             await vm.fetchStandings(competition: competition)
