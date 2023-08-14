@@ -19,18 +19,18 @@ struct StandingsTableView: View {
     var body: some View {
         Table(of: TeamStandingTable.self) {
             
-            TableColumn("Club") { team in
+            TableColumn("Club") { club in
                 HStack {
-                    Text(team.positionText).fontWeight(.bold)
+                    Text(club.positionText).fontWeight(.bold)
                         .frame(minWidth: 20)
                     
-                    if let crest = team.team.crest, crest.hasSuffix("svg") {
+                    if let crest = club.team.crest, crest.hasSuffix("svg") {
                         
                         SVGImage(url: URL(string: crest)!, size: .init(width: 40, height: 40)).frame(width: 40, height: 40).cornerRadius(20)
                         
                     } else {
                         AsyncImage(url: URL(string:
-                            team.team.crest ?? "")) { phase in
+                            club.team.crest ?? "")) { phase in
                             switch phase {
                             case .success(let image):
                                 image.resizable()
@@ -43,7 +43,7 @@ struct StandingsTableView: View {
                         
                     }
                     
-                    Text(team.team.name)
+                    Text(club.team.name)
                     
 
                 }
@@ -70,6 +70,30 @@ struct StandingsTableView: View {
             
             TableColumn("Pts") {Text($0.pointsText).frame(minWidth: 40)}
                 .width(40)
+            
+            TableColumn("Last 5") { club in
+                HStack(spacing: 4) {
+                    if let formArray = club.formArray, !formArray.isEmpty {
+                        ForEach(formArray, id: \.self) {form in switch form {
+                            case "W":
+                                Image(systemName:
+                                        "checkmark.circle.fill").symbolRenderingMode(.palette).foregroundStyle(Color.white, Color.green)
+                            case "L":
+                                Image(systemName:
+                                        "xmark.circle.fill").symbolRenderingMode(.palette).foregroundStyle(Color.white, Color.red)
+                                
+                            default:
+                                Image(systemName:
+                                        "minus.circle.fill").symbolRenderingMode(.palette).foregroundStyle(Color.white, Color.white.opacity(0.5))
+                        }
+                            
+                        }
+                    } else {
+                        Text("-").frame(width: 120, alignment: .center)
+                    }
+                }
+                
+            }.width(120)
             
             
         } rows: {
