@@ -43,6 +43,8 @@ struct StandingsTableView: View {
                         
                     }
                     
+                    Text(team.team.name)
+                    
 
                 }
             }
