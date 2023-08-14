@@ -11,15 +11,14 @@ import XCAFootballDataClient
 
 
 @Observable
-class StandingTableObservable {
+class StandingsTableObservable {
     
     let client = FootballDataClient(apiKey: apiKey)
     
     var fetchPhase = FetchPhase<[TeamStandingTable]>.initial
+    var standings: [TeamStandingTable]? { fetchPhase.value }
     
-    var standings: [TeamStandingTable]? {fetchPhase.value}
-    
-    var selectedFilter: FilterOption.latest
+    var selectedFilter = FilterOption.latest
     var filterOptions: [FilterOption] = {
         var date = Calendar.current.date(byAdding: .year, value: -4, to: Date())!
         var options = [FilterOption]()
@@ -29,20 +28,21 @@ class StandingTableObservable {
                 date = nextYear
             }
         }
+        options.append(.latest)
+        return options
     }()
     
-    
     func fetchStandings(competition: Competition) async {
-//        fetchPhase = .fetching
-//        do {
-//            let standings = try await client.fetchStandings(competitionId: competition.id)
-//            if Task.isCancelled { return }
-//            fetchPhase = .success(standings)
-//        } catch {
-//            if Task.isCancelled { return }
-//            fetchPhase = .failure(error)
-//        }
-        fetchPhase = .success(TeamStandingTable.stubs)
+        fetchPhase = .fetching
+        do {
+            let standings = try await client.fetchStandings(competitionId: competition.id, filterOption: selectedFilter)
+            if Task.isCancelled { return }
+            fetchPhase = .success(standings)
+        } catch {
+            if Task.isCancelled { return }
+            fetchPhase = .failure(error)
+        }
+//        fetchPhase = .success(TeamStandingTable.stubs)
     }
     
 }

@@ -12,7 +12,7 @@ import XCAFootballDataClient
 struct StandingsTableView: View {
     
     let competition: Competition
-    var vm = StandingTableObservable()
+    @Bindable var vm = StandingsTableObservable()
     
     
     
@@ -110,7 +110,7 @@ struct StandingsTableView: View {
             }
         }
         .foregroundStyle(Color.primary)
-            .navigationTitle(competition.name).task {
+        .navigationTitle(competition.name).task(id: vm.selectedFilter.id) {
             await vm.fetchStandings(competition: competition)
         }
     }
