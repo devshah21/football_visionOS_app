@@ -9,6 +9,7 @@ import Foundation
 import Observation
 import XCAFootballDataClient
 
+
 @Observable
 class StandingTableObservable {
     

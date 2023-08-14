@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SVGImageSwiftUI
 import XCAFootballDataClient
 
 struct StandingsTableView: View {
@@ -23,17 +24,26 @@ struct StandingsTableView: View {
                     Text(team.positionText).fontWeight(.bold)
                         .frame(minWidth: 20)
                     
-                    AsyncImage(url: URL(string:
-                        team.team.crest ?? "")) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image.resizable()
-                        default:
-                            Circle().foregroundStyle(Color.gray.opacity(0.5))
+                    if let crest = team.team.crest, crest.hasSuffix("svg") {
+                        
+                        SVGImage(url: URL(string: crest)!, size: .init(width: 40, height: 40)).frame(width: 40, height: 40).cornerRadius(20)
+                        
+                    } else {
+                        AsyncImage(url: URL(string:
+                            team.team.crest ?? "")) { phase in
+                            switch phase {
+                            case .success(let image):
+                                image.resizable()
+                            default:
+                                Circle().foregroundStyle(Color.gray.opacity(0.5))
+                            }
+                            
                         }
+                            .frame(width: 40, height: 40)
                         
                     }
-                        .frame(width: 40, height: 40)
+                    
+
                 }
             }
             .width(min: 264)
