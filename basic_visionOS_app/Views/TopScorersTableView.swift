@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import XCAFootballDataClient
 
 struct TopScorersTableView: View {
+    
+    let competition: Competition
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    TopScorersTableView()
+    NavigationStack {
+        TopScorersTableView(competition: .defaultCompetitions[1])
+    }
+    
 }
