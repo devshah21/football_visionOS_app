@@ -34,7 +34,8 @@ class TopScorersTableObservable {
     func fetchTopScorers(competition: Competition) async {
         fetchPhase = .fetching
         do {
-            var scorers = try await client.fetchTopScorers(competitionId: competition.id, filterOption: selectedFilter)
+            var scorers = Scorer.stubs
+//            var scorers = try await client.fetchTopScorers(competitionId: competition.id, filterOption: selectedFilter)
             scorers = scorers.enumerated().map { index, scorer in var scorer = scorer
                 scorer.pos = index + 1
                 return scorer
@@ -48,3 +49,10 @@ class TopScorersTableObservable {
     }
 }
 
+extension Scorer {
+    static var stubs: [Scorer] {
+        let url = Bundle.main.url(forResource: "scorers", withExtension: "json")!
+        let scorersResponse: TopScorersResponse = Utilities.loadStub(url: url)
+        return scorersResponse.scorers!
+    }
+}
