@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import Observation
+import XCAFootballDataClient
+
+@Observable
+class TopScorersTableObservable {
+    
+    let client = FootballDataClient(apiKey: apiKey)
+    var fetchPhase = FetchPhase<[Scorer]>.initial
+    
+    var scorers: [Scorer]? { fetchPhase.value }
+}
