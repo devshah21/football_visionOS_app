@@ -22,6 +22,7 @@
 		6FB18A9D2A831BE8006403B4 /* standings.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FB18A9C2A831BE8006403B4 /* standings.json */; };
 		6FB18A9F2A831C3E006403B4 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB18A9E2A831C3E006403B4 /* Utility.swift */; };
 		6FEC95BB2A8AEE1400CC226D /* StandingsTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC95BA2A8AEE1400CC226D /* StandingsTabItemView.swift */; };
+		6FEC95BD2A8AF60B00CC226D /* TopScorersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC95BC2A8AF60B00CC226D /* TopScorersTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		6FB18A9C2A831BE8006403B4 /* standings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = standings.json; sourceTree = "<group>"; };
 		6FB18A9E2A831C3E006403B4 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		6FEC95BA2A8AEE1400CC226D /* StandingsTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTabItemView.swift; sourceTree = "<group>"; };
+		6FEC95BC2A8AF60B00CC226D /* TopScorersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorersTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				6FA3AD6C2A7F047700C0C269 /* StandingsTableView.swift */,
 				6FEC95BA2A8AEE1400CC226D /* StandingsTabItemView.swift */,
+				6FEC95BC2A8AF60B00CC226D /* TopScorersTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				6FA148CF2A81B94D00EC33C8 /* FetchPhase.swift in Sources */,
 				6FEC95BB2A8AEE1400CC226D /* StandingsTabItemView.swift in Sources */,
 				6FA3AD6D2A7F047700C0C269 /* StandingsTableView.swift in Sources */,
+				6FEC95BD2A8AF60B00CC226D /* TopScorersTableView.swift in Sources */,
 				6FB18A9F2A831C3E006403B4 /* Utility.swift in Sources */,
 				6FA148CD2A81B90F00EC33C8 /* StandingTableObservable.swift in Sources */,
 				6FA3AD502A7EF4CE00C0C269 /* ContentView.swift in Sources */,
