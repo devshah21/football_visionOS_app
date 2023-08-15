@@ -56,9 +56,28 @@ struct TopScorersTableView: View {
             }
         }
         .foregroundStyle(.primary)
+        .overlay {
+                    switch vm.fetchPhase {
+                    case .fetching: ProgressView()
+                    case .success(let scorers) where scorers.isEmpty:
+                        Text("Scorers not available").font(.headline)
+                    case .failure(let error):
+                        Text(error.localizedDescription).font(.headline)
+                    default: EmptyView()
+                    }
+                }
             .navigationTitle(competition.name + " Top Scorers").task(id: vm.selectedFilter.id) {
             await vm.fetchTopScorers(competition: competition)
         }
+            .toolbar {
+                        ToolbarItem(placement: .bottomOrnament) {
+                            Picker("Filter Options", selection: $vm.selectedFilter) {
+                                ForEach(vm.filterOptions, id: \.self) { season in
+                                    Text(" \(season.text) ")
+                                }
+                            }.pickerStyle(.segmented)
+                        }
+                    }
     }
 }
 
