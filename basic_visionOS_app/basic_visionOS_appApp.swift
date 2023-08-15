@@ -16,7 +16,8 @@ struct basic_visionOS_appApp: App {
                 StandingsTabItemView().tabItem { Label("Standings", systemImage: "table.fill")}
                 
                 
-                Text("Top Scorers").tabItem { Label("Top Scorers", systemImage: "soccerball.inverse")}
+                TopScorersTabItemView()
+                    .tabItem { Label("Top Scorers", systemImage: "soccerball.inverse")}
             }
         }
     }
