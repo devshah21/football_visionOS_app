@@ -110,7 +110,7 @@ struct StandingsTableView: View {
             }
         }
         .foregroundStyle(Color.primary)
-        .navigationTitle(competition.name).task(id: vm.selectedFilter.id) {
+        .navigationTitle(competition.name + "Standings").task(id: vm.selectedFilter.id) {
             await vm.fetchStandings(competition: competition)
         }.toolbar {
             ToolbarItem(placement: .bottomOrnament) {
