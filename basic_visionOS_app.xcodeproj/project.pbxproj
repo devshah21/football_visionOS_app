@@ -23,6 +23,7 @@
 		6FB18A9F2A831C3E006403B4 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB18A9E2A831C3E006403B4 /* Utility.swift */; };
 		6FEC95BB2A8AEE1400CC226D /* StandingsTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC95BA2A8AEE1400CC226D /* StandingsTabItemView.swift */; };
 		6FEC95BD2A8AF60B00CC226D /* TopScorersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC95BC2A8AF60B00CC226D /* TopScorersTableView.swift */; };
+		6FEC95BF2A8AF80C00CC226D /* TopScorersTableObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEC95BE2A8AF80C00CC226D /* TopScorersTableObservable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		6FB18A9E2A831C3E006403B4 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		6FEC95BA2A8AEE1400CC226D /* StandingsTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTabItemView.swift; sourceTree = "<group>"; };
 		6FEC95BC2A8AF60B00CC226D /* TopScorersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorersTableView.swift; sourceTree = "<group>"; };
+		6FEC95BE2A8AF80C00CC226D /* TopScorersTableObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScorersTableObservable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				6FA148CC2A81B90F00EC33C8 /* StandingTableObservable.swift */,
+				6FEC95BE2A8AF80C00CC226D /* TopScorersTableObservable.swift */,
 			);
 			path = Observables;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				6FA3AD6D2A7F047700C0C269 /* StandingsTableView.swift in Sources */,
 				6FEC95BD2A8AF60B00CC226D /* TopScorersTableView.swift in Sources */,
 				6FB18A9F2A831C3E006403B4 /* Utility.swift in Sources */,
+				6FEC95BF2A8AF80C00CC226D /* TopScorersTableObservable.swift in Sources */,
 				6FA148CD2A81B90F00EC33C8 /* StandingTableObservable.swift in Sources */,
 				6FA3AD502A7EF4CE00C0C269 /* ContentView.swift in Sources */,
 				6FA3AD4E2A7EF4CE00C0C269 /* basic_visionOS_appApp.swift in Sources */,
